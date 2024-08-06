@@ -16,7 +16,6 @@ problems = Table(
     metadata,
     Column('id', Integer, primary_key=True),
     Column('title', String(50), nullable=False),
-    Column('description', Text, nullable=False),
     Column('photo', String, nullable=True),
     Column('chat_id', BigInteger, nullable=False)
 )

@@ -22,3 +22,18 @@ async def add_event(data):
         photo=data['photo'],
         chat_id=data['chat_id']
     ))
+
+async def add_problem(data):
+    return await database.execute(query=problems.insert().values(
+        title=data['title'],
+        photo=data['photo'],
+        chat_id=data['chat_id']
+    ))
+
+async def get_all_problems_user(chat_id):
+    return await database.fetch_all(query=problems.select().where(
+        users.c.chat_i == chat_id
+    ))
+
+async def get_all_problems():
+    return await database.fetch_all(query=problems.select())
